@@ -1,0 +1,224 @@
+body,
+html {
+  background-color: rgb(249, 249, 249);
+  font-family: 'Lato', sans-serif; /* Use the imported font */
+}
+
+/* Title */
+.title-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(#afdeff, #42aed9);
+    color: #364959;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.title-box img {
+    max-width: 100px;
+    margin-right: 10px;
+}
+
+/* Heading styles */
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 18px;
+  color: #666;
+  margin-top: 20px;
+}
+
+/* Container for the three columns */
+.content {
+  display: grid;
+  grid-template-columns: 50% 30%;
+  grid-gap: 50px;
+}
+
+/* Column */
+.column {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  margin: 30px;
+}
+
+.column p,
+.column h2,
+.column .blue-button,
+.column .input {
+  margin: 10px 50px;
+}
+
+
+
+#first-column h2,
+#first-column .boxh{
+  margin-left: 0px;
+  margin-bottom: 10px;
+}
+
+
+/* Specific Componentes */
+#definition {
+  margin: 10px 50px;
+}
+
+#travel_mode {
+  margin: 10px 50px;
+  margin-right: 0px;
+}
+
+#simulation {
+  margin-left: 0px;
+}
+
+/* Buttons */
+.blue-button {
+  background-color: #42aed9;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  max-width: 100%;
+
+}
+
+#generate-routes, #generate-viapoints, #load-problem, #reset, #save-routes, #save-nodes {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+} 
+
+.small-blue-button {
+  background-color: #42aed9;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  margin: 2px;
+}
+
+.blue-button:hover,
+.small-blue-button:hover,
+.custom-dropdown:hover {
+  background-color: #0056b3;
+}
+
+.warning {
+  color: rgb(215, 50, 50);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Map section */
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.custom-dropdown {
+  background-color: #3970ab;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Pop up for the tracking of the vehicles*/
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  resize: both;
+  overflow: auto;
+}
+
+#popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;
+}
+
+#popup-title {
+  font-weight: bold;
+}
+
+#popup-controls {
+  display: flex;
+  align-items: center;
+}
+
+#popup-resize {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #ccc;
+  cursor: nwse-resize;
+  margin-right: 5px;
+}
+
+#popup-close {
+  cursor: pointer;
+}
+
+
+/* Style for text and number input boxes */
+input[type="text"],
+input[type="number"]{
+  width: 95%;
+  padding: 10px;
+  margin: 2px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style for input labels */
+label {
+  display: block;
+  font-weight: bold;
+}
+
+/* Define styles for focus/hover states */
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}

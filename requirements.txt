@@ -1,0 +1,11 @@
+ortools
+Flask==2.0.3
+flask-babel
+Werkzeug
+Unidecode
+PyYAML
+opencv-python
+shapely
+rasterio
+geopy
+numpy

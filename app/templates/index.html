@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>VRP Ground Station</title>
+<!--link rel="icon" href="{{ url_for('static', filename='images/grvc.ico') }}" type="image/x-icon"-->
+<script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+    integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+    crossorigin="anonymous"></script>
+<style>
+    #map {
+        height: 600px;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<div class="title-box">
+    <!--img id="grvc-logo" src="{{ url_for('static', filename='images/grvc.png') }}"-->
+    <h1>VRP GROUND STATION</h1>
+</div>
+<div class="content">
+    <div class="column" id="first-column">
+        <!--div class="boxh">
+            <h2>{{ gettext("Addresses") }}</h2>
+            <form onsubmit="handleAddress(event);">
+                <input type="text" name="address" id="address">
+                <input type="submit" class="small-blue-button" value={% trans %}Add{% endtrans %}>
+            </form>
+        </div-->
+
+        <div id="map"></div>
+    </div>
+
+    <div class="column">
+        <h2>{% trans %}Problem definition{% endtrans %}</h2>
+        <div id="definition">
+            <form onsubmit="generateRoutes(event);">
+                <label for="uas_num">{% trans %}Number of UAS{% endtrans %}</label>
+                <input type="number" id="uas_num" name="uas_num">
+                <span id="uas_num-warning" class="warning hidden">{% trans %}Please enter a valid number of vehicles{%
+                    endtrans %}</span>
+
+                <label for="autonomy">{% trans %}Max Time per Vehicle [minutes]{% endtrans %}</label>
+                <input type="text" id="autonomy" name="autonomy">
+                <span id="autonomy-warning" class="warning hidden">{% trans %}Please enter valid maximun times{%
+                    endtrans %}</span>
+
+                <label for="velocity">{% trans %}Vehicle Velocity [km/h]{% endtrans %}</label>
+                <input type="text" id="velocity" name="velocity">
+                <span id="velocity-warning" class="warning hidden">{% trans %}Please enter a valid vehicle velocities{%
+                    endtrans %}</span>
+
+                <label for="start_nodes">{% trans %}Departure Depots{% endtrans %}</label>
+                <input type="text" id="start_nodes" name="start_nodes">
+                <span id="start_nodes-warning" class="warning hidden">{% trans %}Please enter a valid number of depots{%
+                    endtrans %}</span>
+
+                <label for="end_nodes">{% trans %}Arrival Depots{% endtrans %}</label>
+                <input type="text" id="end_nodes" name="end_nodes">
+                <span id="end_nodes-warning" class="warning hidden">{% trans %}Please enter a valid number of depots{%
+                    endtrans %}</span>
+                    
+                <button id="generate-routes" class="blue-button">{% trans %}Generate Routes{% endtrans %}</button>
+            </form>
+                       
+            <button id="load-problem" class="blue-button" onclick="loadProblemDefiniton(event)">{% trans %}Load Problem Definition from File{%
+                endtrans %}</button>
+            <br>
+            <button id="reset" class="blue-button" onclick="reset(event)">{% trans %}Reset{% endtrans %}</button>
+            <br>
+            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+                <button id="save-routes" class="blue-button" onclick="saveRoutes(event)">{% trans %}Save Routes{% endtrans %}</button>
+                <button id="save-nodes" class="blue-button" onclick="saveNodes(event)">{% trans %}Save Nodes{% endtrans %}</button>
+            </div>         
+        </div>
+    </div>
+    
+</div>
+
+<div id="map-center" coordinates="{{ coordinates|tojson }}"></div>
+<script src="{{ url_for('static',filename='js/index.js') }}" type="module"></script>
+
+
+
+{% endblock %}
